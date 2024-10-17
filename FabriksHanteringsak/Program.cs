@@ -21,9 +21,11 @@
 
                 Console.WriteLine("1. Lägg till produkt");
 
-                Console.WriteLine("2. Visa inventarie");
+                Console.WriteLine("2. Ta bort produkt");
 
-                Console.WriteLine("3. Avsluta");
+                Console.WriteLine("3. Visa inventarie");
+
+                Console.WriteLine("4. Avsluta");
 
 
 
@@ -46,6 +48,10 @@
                         break;
 
                     case "3":
+                        TaBortProdukt();
+                        return;
+
+                    case "4":
 
                         return;
 
@@ -77,13 +83,22 @@
 
         }
 
-        static void TaBortProdukt(String produktToRemove)
+        static void TaBortProdukt()
         {
-            produktToRemove = produktToRemove.ToLower();
-            inventory.Remove(produktToRemove);
-            Console.WriteLine("Removed: " + produktToRemove);
-        }
+            Console.Clear();
+            string produktToRemove = Console.ReadLine();
+            if (!String.IsNullOrWhiteSpace(produktToRemove))
+            {
+                produktToRemove = produktToRemove.ToLower();
+                inventory.Remove(produktToRemove);
+                Console.WriteLine("Removed: " + produktToRemove);
+            }
+            else
+            {
+                Console.WriteLine("Invalid entry");
+            }
 
+        }
     }
 }
 
