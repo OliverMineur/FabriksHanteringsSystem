@@ -72,7 +72,10 @@
         static void VisaInventarie()
 
         {
-
+            foreach (var item in inventory)
+            {
+                Console.WriteLine(item);
+            }
             // TODO: Implementera metod för att visa inventarie 
 
         }
