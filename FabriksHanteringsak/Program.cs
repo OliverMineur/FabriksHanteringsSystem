@@ -41,7 +41,7 @@
 
                     case "2":
 
-                        VisaInventarie();
+                        VisaInventarie(inventory);
 
                         break;
 
@@ -69,7 +69,7 @@
 
         }
 
-        static void VisaInventarie()
+        static void VisaInventarie(List<string> inventory)
 
         {
             foreach (var item in inventory)
