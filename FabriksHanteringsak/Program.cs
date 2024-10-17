@@ -66,15 +66,14 @@
             }
 
         }
-
         static void LäggTillProdukt()
 
         {
-
             // TODO: Implementera metod för att lägga till produkt 
-
+            Console.Write("Ange produktnamn: ");
+            inventory.Add(Console.ReadLine());
+            Console.WriteLine("Produkten har lagts till i inventariet.");
         }
-
         static void VisaInventarie()
 
         {
