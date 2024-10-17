@@ -51,8 +51,11 @@
                         TaBortProdukt();
                         return;
 
-                    case "4":
+                        SökProdukt();
 
+                        break;
+
+                    case "4":
                         return;
 
                     default:
@@ -100,7 +103,41 @@
             {
                 Console.WriteLine("Invalid entry");
             }
+        static void TaBortProdukt(String produktToRemove)
+        {
+            produktToRemove = produktToRemove.ToLower();
+            inventory.Remove(produktToRemove);
+            Console.WriteLine("Removed: " + produktToRemove);
+        }
+        static void SökProdukt()
+        {
+            bool searchResult = false;
+            Console.WriteLine("Skriv in sökord");
+            String userSearch = Console.ReadLine();
 
+            while (String.IsNullOrEmpty(userSearch))
+            {
+                Console.Clear();
+                Console.WriteLine("Ogiltlig inmatning\n Skriv in sökord");
+                userSearch = Console.ReadLine();
+            }
+            if (!String.IsNullOrEmpty(userSearch))
+            {
+                Console.WriteLine("Resultat:");
+                foreach (var product in inventory)
+                {
+                    if (userSearch.ToLower() == product || product.Contains(userSearch))
+                    {
+                        Console.WriteLine($"Produkt: {product}");
+                        searchResult = true;
+                    }
+                }
+                if (searchResult == false)
+                {
+                    Console.WriteLine("Din sökning gav inget resultat");
+                }
+                Console.ReadLine();
+            }
         }
     }
 }
