@@ -43,13 +43,13 @@
 
                         break;
 
-                    case "2":
+                    case "3":
 
                         VisaInventarie(inventory);
 
                         break;
 
-                    case "3":
+                    case "2":
                         TaBortProdukt();
                         break;
 
@@ -81,12 +81,15 @@
         }
 
         static void VisaInventarie(List<string> inventory)
-
         {
-            foreach (var item in inventory)
+            if(inventory.Count > 0)
             {
-                Console.WriteLine(item);
+                foreach (var item in inventory)
+                {
+                    Console.WriteLine(item);
+                }
             }
+
             // TODO: Implementera metod för att visa inventarie 
 
         }
